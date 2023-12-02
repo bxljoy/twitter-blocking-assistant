@@ -1,4 +1,7 @@
 # twitter-blocking-assistant
+- This is a Google Chrome Extension
+
+# features
 - Blocking all the twitter(X) accounts of follower list.
 - Blocking all the twitter(X) accounts of like list for a single tweet.
 
