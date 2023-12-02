@@ -1,16 +1,15 @@
 # twitter-blocking-assistant
-- This is a Google Chrome Extension, but it cannot be used as an extension any more.
+  - This is a Google Chrome Extension, but it cannot be used as an extension any more.
 
 # features
-- Blocking all the twitter(X) accounts of follower list.(Due to twitter(X) follower list's bug, this feature doesn't work.)
-- Blocking all the twitter(X) accounts of like list for a single tweet.
-- Blocking all the twitter(X) accounts of retweeting list for a single tweet.
+  - Blocking all the twitter(X) accounts of follower list.(Due to twitter(X) follower list's bug, this feature doesn't work.)
+  - Blocking all the twitter(X) accounts of like list for a single tweet.
+  - Blocking all the twitter(X) accounts of retweeting list for a single tweet.
 
 # issues fixed
-- the only useful part is this code:
+  - the only useful part is this code:
 
-
-  ```
+    ```javascript
     // delay a few sceonds to excute next line
     async function delay(seconds) {
         await new Promise(resolve => setTimeout(resolve, seconds * 100));
@@ -66,6 +65,12 @@
 
     }
     await scrollDown(length+17);
-```
-You can excute this code in the bookmark.
+    ```
+# How to use BookMark excuting the javascript
+  - Create a new bookmark in Google Chrome
+  - Edit the bookmark and replace the url to javascript code
 
+# Minified code as follows:
+```javascript
+javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll("[data-testid=UserCell]"),l=a.length;console.log(l);for(let c=0;c<l;c++){let i=document.querySelectorAll("[data-testid=UserCell]");i[c].click(),await t(16);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let o=document.querySelector("[data-testid=userActions]");o.click(),await t(18);let d=document.querySelector("[data-testid=block]");d.click(),await t(17);let s=document.querySelector("[data-testid=confirmationSheetConfirm]");s.click()}await t(16);let n=document.querySelector("[data-testid=app-bar-back]");n.click(),await t(15)}await e(l+17)})();
+```
