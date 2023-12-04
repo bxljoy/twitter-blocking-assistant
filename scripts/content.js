@@ -81,10 +81,7 @@ for (let i = 0; i < length; i++) {
 
     const newBlockElements = document.querySelectorAll('[data-testid=UserCell]');
     newBlockElements[i].click();
-    await delay(10);
-
-    // find the send DM button
-    // const sendDMButton = document.querySelector('[data-testid=sendDMFromProfile]');
+    await delay(13);
 
     // find the unblock button
     const unblockButton = document.querySelector("div[data-testid$='-unblock']");
@@ -95,25 +92,25 @@ for (let i = 0; i < length; i++) {
         const userActions = document.querySelector('[data-testid=userActions]');
         userActions.click();
 
-        await delay(11);
+        await delay(14);
 
         // click block button
         const blockButton = document.querySelector('[data-testid=block]');
         blockButton.click();
 
-        await delay(10);
+        await delay(15);
         // click confirm button
         const confirmButton = document.querySelector('[data-testid=confirmationSheetConfirm]');
         confirmButton.click();
     }
 
-    await delay(11);
+    await delay(14);
 
     // click back button, back to the twitter accounts list
     const backButton = document.querySelector('[data-testid=app-bar-back]');
     backButton.click();
 
-    await delay(10);
+    await delay(13);
 }
 await scrollDown(length+17);
 })();
