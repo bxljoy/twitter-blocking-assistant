@@ -69,7 +69,7 @@ async function delay(seconds) {
 }
 
 async function scrollDown(num) {
-    window.scrollBy(0, num * 70);
+    window.scrollBy(0, num * 90);
 }
 
 // attain the list of twitter accounts
