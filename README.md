@@ -74,3 +74,6 @@
 ```javascript
 javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll("[data-testid=UserCell]"),l=a.length;console.log(l);for(let c=0;c<l;c++){let i=document.querySelectorAll("[data-testid=UserCell]");i[c].click(),await t(16);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let o=document.querySelector("[data-testid=userActions]");o.click(),await t(18);let d=document.querySelector("[data-testid=block]");d.click(),await t(17);let s=document.querySelector("[data-testid=confirmationSheetConfirm]");s.click()}await t(16);let n=document.querySelector("[data-testid=app-bar-back]");n.click(),await t(15)}await e(l+17)})();
 ```
+
+# The screenshot is as follows:
+![Local Image](./images/edit_bookmark.png)
