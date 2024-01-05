@@ -66,7 +66,7 @@
     }
     await scrollDown(length+17);
     ```
-# How to use BookMark excuting the javascript
+# How to use BookMark executing the javascript
   - Create a new bookmark in Google Chrome
   - Edit the bookmark and replace the url to javascript code
 
