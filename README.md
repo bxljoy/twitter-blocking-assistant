@@ -10,61 +10,71 @@
   - the only useful part is this code:
 
     ```javascript
-    // delay a few sceonds to excute next line
-    async function delay(seconds) {
-        await new Promise(resolve => setTimeout(resolve, seconds * 100));
-    }
+  // delay a few sceonds to excute next line
+  async function delay(seconds) {
+      await new Promise(resolve => setTimeout(resolve, seconds * 100));
+  }
 
-    // scroll down the page
-    async function scrollDown(num) {
-        await window.scrollBy(0, num * 90);
-    }
+  // scroll down the page
+  async function scrollDown(num) {
+      await window.scrollBy(0, num * 90);
+  }
 
-    // attain the list of twitter accounts
-    const blockElements = document.querySelectorAll('[data-testid=UserCell]');
-    let length = blockElements.length;
-    console.log(length);
+  // attain the list of twitter accounts
+  const blockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
+  let length = blockElements.length;
+  console.log(length);
+  // const ch = blockElements[0].clientHeight
 
-    for (let i = 0; i < length; i++) {
+  // await scrollDown(17);
 
-        const newBlockElements = document.querySelectorAll('[data-testid=UserCell]');
-        newBlockElements[i].click();
-        await delay(16);
+  for (let i = 0; i < length; i++) {
 
-        // find the send DM button
-        // const sendDMButton = document.querySelector('[data-testid=sendDMFromProfile]');
+      const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
+      if (newBlockElements[i]) {
+          newBlockElements[i].click();
+      }
+      await delay(13);
 
-        // find the unblock button
-        const unblockButton = document.querySelector("div[data-testid$='-unblock']");
+      // find the unblock button
+      const unblockButton = document.querySelector("div[data-testid$='-unblock']");
 
-        if (!unblockButton) {
+      if (!unblockButton) {
 
-            // click user actions button
-            const userActions = document.querySelector('[data-testid=userActions]');
-            userActions.click();
+          // click user actions button
+          const userActions = document.querySelector('[data-testid=userActions]');
+          if (userActions) {
+              userActions.click();
+          }
 
-            await delay(18);
+          await delay(14);
 
-            // click block button
-            const blockButton = document.querySelector('[data-testid=block]');
-            blockButton.click();
+          // click block button
+          const blockButton = document.querySelector('[data-testid=block]');
+          if (blockButton) {
+              blockButton.click();
+          }
 
-            await delay(17);
-            // click confirm button
-            const confirmButton = document.querySelector('[data-testid=confirmationSheetConfirm]');
-            confirmButton.click();
-        }
+          await delay(15);
+          // click confirm button
+          const confirmButton = document.querySelector('[data-testid=confirmationSheetConfirm]');
+          if (confirmButton) {
+              confirmButton.click();
+          }
+      }
 
-        await delay(16);
+      await delay(14);
 
-        // click back button, back to the twitter accounts list
-        const backButton = document.querySelector('[data-testid=app-bar-back]');
-        backButton.click();
+      // click back button, back to the twitter accounts list
+      const backButton = document.querySelector('[data-testid=app-bar-back]');
+      if (backButton) {
+          backButton.click();
+      }
 
-        await delay(15);
+      await delay(13);
 
-    }
-    await scrollDown(length+17);
+  }
+  await scrollDown(length+17);
     ```
 # How to use BookMark executing the javascript
   - Create a new bookmark in Google Chrome
@@ -72,7 +82,7 @@
 
 # Minified code as follows:
 ```javascript
-javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll("[data-testid=UserCell]"),l=a.length;console.log(l);for(let c=0;c<l;c++){let i=document.querySelectorAll("[data-testid=UserCell]");i[c].click(),await t(16);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let o=document.querySelector("[data-testid=userActions]");o.click(),await t(18);let d=document.querySelector("[data-testid=block]");d.click(),await t(17);let s=document.querySelector("[data-testid=confirmationSheetConfirm]");s.click()}await t(16);let n=document.querySelector("[data-testid=app-bar-back]");n.click(),await t(15)}await e(l+17)})();
+javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]'),l=a.length;console.log(l);for(let i=0;i<l;i++){let c=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');c[i]&&c[i].click(),await t(13);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let d=document.querySelector("[data-testid=userActions]");d&&d.click(),await t(14);let n=document.querySelector("[data-testid=block]");n&&n.click(),await t(15);let o=document.querySelector("[data-testid=confirmationSheetConfirm]");o&&o.click()}await t(14);let s=document.querySelector("[data-testid=app-bar-back]");s&&s.click(),await t(13)}await e(l+17)})();
 ```
 
 # The screenshot is as follows:
