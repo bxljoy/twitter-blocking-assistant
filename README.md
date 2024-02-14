@@ -32,7 +32,15 @@
 
       const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
       if (newBlockElements[i]) {
+        // find the blocked user and skip to next one
+        const blockedElement = newBlockElements[i].querySelector('div[data-testid$="-unblock"]');
+        if (!blockedElement) {
           newBlockElements[i].click();
+        } else {
+          continue;
+        }
+      } else {
+        continue;
       }
       await delay(13);
 
@@ -82,7 +90,7 @@
 
 # Minified code as follows:
 ```javascript
-javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]'),l=a.length;console.log(l);for(let i=0;i<l;i++){let c=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');c[i]&&c[i].click(),await t(13);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let d=document.querySelector("[data-testid=userActions]");d&&d.click(),await t(14);let n=document.querySelector("[data-testid=block]");n&&n.click(),await t(15);let o=document.querySelector("[data-testid=confirmationSheetConfirm]");o&&o.click()}await t(14);let s=document.querySelector("[data-testid=app-bar-back]");s&&s.click(),await t(13)}await e(l+17)})();
+javascript:(async()=>{async function e(e){await new Promise(t=>setTimeout(t,100*e))}async function t(e){window.scrollBy(0,90*e),setTimeout(()=>{console.log("Finished scrolling, executing other code now.")},1e3)}async function i(){let i=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]'),l=i.length;console.log(l);for(let a=0;a<l;a++){let c=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');if(!c[a])continue;{let n=c[a].querySelector('div[data-testid$="-unblock"]');if(n)continue;c[a].click()}await e(13);let o=document.querySelector("div[data-testid$='-unblock']");if(!o){let d=document.querySelector("[data-testid=userActions]");d&&d.click(),await e(14);let r=document.querySelector("[data-testid=block]");r&&r.click(),await e(15);let s=document.querySelector("[data-testid=confirmationSheetConfirm]");s&&s.click()}await e(14);let u=document.querySelector("[data-testid=app-bar-back]");u&&u.click(),await e(13)}setTimeout(()=>{console.log("Finished blocking, executing other code now.")},2e3*l),await t(l)}i()})();
 ```
 
 # The screenshot is as follows:
