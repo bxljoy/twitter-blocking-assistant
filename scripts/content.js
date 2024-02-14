@@ -73,8 +73,10 @@ javascript:(async () => {
             await delay(13);
 
         }
+        setTimeout(() => {
+            console.log('Finished blocking, executing other code now.');
+        }, 2000 * length); 
         await scrollDown(length);
     }
-
     autoBlocking();
 })();
