@@ -21,7 +21,15 @@ for (let i = 0; i < length; i++) {
 
     const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
     if (newBlockElements[i]) {
+      // find the blocked user and skip to next one
+      const blockedElement = newBlockElements[i].querySelector('div[data-testid$="-unblock"]');
+      if (!blockedElement) {
         newBlockElements[i].click();
+      } else {
+        continue;
+      }
+    } else {
+      continue;
     }
     await delay(13);
 
@@ -88,7 +96,15 @@ for (let i = 0; i < length; i++) {
 
     const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
     if (newBlockElements[i]) {
+      // find the blocked user and skip to next one
+      const blockedElement = newBlockElements[i].querySelector('div[data-testid$="-unblock"]');
+      if (!blockedElement) {
         newBlockElements[i].click();
+      } else {
+        continue;
+      }
+    } else {
+      continue;
     }
     await delay(13);
 

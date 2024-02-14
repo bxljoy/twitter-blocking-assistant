@@ -32,7 +32,15 @@
 
       const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
       if (newBlockElements[i]) {
+        // find the blocked user and skip to next one
+        const blockedElement = newBlockElements[i].querySelector('div[data-testid$="-unblock"]');
+        if (!blockedElement) {
           newBlockElements[i].click();
+        } else {
+          continue;
+        }
+      } else {
+        continue;
       }
       await delay(13);
 
@@ -82,7 +90,7 @@
 
 # Minified code as follows:
 ```javascript
-javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]'),l=a.length;console.log(l);for(let i=0;i<l;i++){let c=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');c[i]&&c[i].click(),await t(13);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let d=document.querySelector("[data-testid=userActions]");d&&d.click(),await t(14);let n=document.querySelector("[data-testid=block]");n&&n.click(),await t(15);let o=document.querySelector("[data-testid=confirmationSheetConfirm]");o&&o.click()}await t(14);let s=document.querySelector("[data-testid=app-bar-back]");s&&s.click(),await t(13)}await e(l+17)})();
+javascript:(async()=>{async function t(t){await new Promise(e=>setTimeout(e,100*t))}async function e(t){window.scrollBy(0,90*t)}let a=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]'),i=a.length;console.log(i);for(let l=0;l<i;l++){let c=document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');if(!c[l])continue;{let d=c[l].querySelector('div[data-testid$="-unblock"]');if(d)continue;c[l].click()}await t(13);let r=document.querySelector("div[data-testid$='-unblock']");if(!r){let n=document.querySelector("[data-testid=userActions]");n&&n.click(),await t(14);let o=document.querySelector("[data-testid=block]");o&&o.click(),await t(15);let s=document.querySelector("[data-testid=confirmationSheetConfirm]");s&&s.click()}await t(14);let u=document.querySelector("[data-testid=app-bar-back]");u&&u.click(),await t(13)}await e(i+17)})();
 ```
 
 # The screenshot is as follows:
