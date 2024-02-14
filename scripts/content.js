@@ -10,7 +10,7 @@ async function scrollDown(num) {
 }
 
 // attain the list of twitter accounts
-const blockElements = document.querySelectorAll('[data-testid=UserCell]');
+const blockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
 let length = blockElements.length;
 console.log(length);
 // const ch = blockElements[0].clientHeight
@@ -19,12 +19,11 @@ console.log(length);
 
 for (let i = 0; i < length; i++) {
 
-    const newBlockElements = document.querySelectorAll('[data-testid=UserCell]');
-    newBlockElements[i].click();
-    await delay(16);
-
-    // find the send DM button
-    // const sendDMButton = document.querySelector('[data-testid=sendDMFromProfile]');
+    const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
+    if (newBlockElements[i]) {
+        newBlockElements[i].click();
+    }
+    await delay(13);
 
     // find the unblock button
     const unblockButton = document.querySelector("div[data-testid$='-unblock']");
@@ -33,27 +32,35 @@ for (let i = 0; i < length; i++) {
 
         // click user actions button
         const userActions = document.querySelector('[data-testid=userActions]');
-        userActions.click();
+        if (userActions) {
+            userActions.click();
+        }
 
-        await delay(18);
+        await delay(14);
 
         // click block button
         const blockButton = document.querySelector('[data-testid=block]');
-        blockButton.click();
+        if (blockButton) {
+            blockButton.click();
+        }
 
-        await delay(17);
+        await delay(15);
         // click confirm button
         const confirmButton = document.querySelector('[data-testid=confirmationSheetConfirm]');
-        confirmButton.click();
+        if (confirmButton) {
+            confirmButton.click();
+        }
     }
 
-    await delay(16);
+    await delay(14);
 
     // click back button, back to the twitter accounts list
     const backButton = document.querySelector('[data-testid=app-bar-back]');
-    backButton.click();
+    if (backButton) {
+        backButton.click();
+    }
 
-    await delay(15);
+    await delay(13);
 
 }
 await scrollDown(length+17);
@@ -73,14 +80,16 @@ async function scrollDown(num) {
 }
 
 // attain the list of twitter accounts
-const blockElements = document.querySelectorAll('[data-testid=UserCell]');
+const blockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
 let length = blockElements.length;
 console.log(length);
 
 for (let i = 0; i < length; i++) {
 
-    const newBlockElements = document.querySelectorAll('[data-testid=UserCell]');
-    newBlockElements[i].click();
+    const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
+    if (newBlockElements[i]) {
+        newBlockElements[i].click();
+    }
     await delay(13);
 
     // find the unblock button
@@ -90,27 +99,36 @@ for (let i = 0; i < length; i++) {
 
         // click user actions button
         const userActions = document.querySelector('[data-testid=userActions]');
-        userActions.click();
+        if (userActions) {
+            userActions.click();
+        }
 
         await delay(14);
 
         // click block button
         const blockButton = document.querySelector('[data-testid=block]');
-        blockButton.click();
+        if (blockButton) {
+            blockButton.click();
+        }
 
         await delay(15);
         // click confirm button
         const confirmButton = document.querySelector('[data-testid=confirmationSheetConfirm]');
-        confirmButton.click();
+        if (confirmButton) {
+            confirmButton.click();
+        }
     }
 
     await delay(14);
 
     // click back button, back to the twitter accounts list
     const backButton = document.querySelector('[data-testid=app-bar-back]');
-    backButton.click();
+    if (backButton) {
+        backButton.click();
+    }
 
     await delay(13);
+
 }
 await scrollDown(length+17);
 })();
