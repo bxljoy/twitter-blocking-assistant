@@ -4,13 +4,16 @@ javascript:(async () => {
         await new Promise(resolve => setTimeout(resolve, seconds * 100));
     }
 
-    // scroll down the page
+    // Revised scrollDown function to ensure it waits properly
     async function scrollDown(num) {
-        window.scrollBy(0, num * 90);
-
-        setTimeout(() => {
-            console.log('Finished scrolling, executing other code now.');
-        }, 1000); 
+        return new Promise(resolve => {
+            window.scrollBy(0, num * 90);
+            // Use setTimeout to delay the resolution of the promise
+            setTimeout(() => {
+                console.log('Finished scrolling, executing other code now.');
+                resolve(); // Resolve the promise after the timeout
+            }, 1000); // Adjust the timeout as needed for your scrolling duration
+        });
     }
 
     async function autoBlocking() {
@@ -78,5 +81,9 @@ javascript:(async () => {
         }, 2000 * length); 
         await scrollDown(length);
     }
-    autoBlocking();
+    // Execute autoBlocking 3 times, waiting for each to complete before the next
+    for (let i = 0; i < 3; i++) {
+        await autoBlocking(); // Wait for autoBlocking to complete before starting next iteration
+        console.log(`autoBlocking run ${i + 1} completed.`);
+    }
 })();
