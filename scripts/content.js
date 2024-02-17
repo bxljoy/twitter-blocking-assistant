@@ -22,6 +22,8 @@ javascript:(async () => {
         let length = blockElements.length;
         console.log(length);
 
+        let count = 0;
+
         for (let i = 0; i < length; i++) {
 
             const newBlockElements = document.querySelectorAll('div[data-testid="cellInnerDiv"] div[data-testid=UserCell]');
@@ -30,6 +32,7 @@ javascript:(async () => {
             const blockedElement = newBlockElements[i].querySelector('div[data-testid$="-unblock"]');
             if (!blockedElement) {
                 newBlockElements[i].click();
+                count++;
             } else {
                 continue;
             }
@@ -80,10 +83,14 @@ javascript:(async () => {
             console.log('Finished blocking, executing other code now.');
         }, 2000 * length); 
         await scrollDown(length);
+        return count;
     }
     // Execute autoBlocking 3 times, waiting for each to complete before the next
+    let sumCompleted = 0;
     for (let i = 0; i < 3; i++) {
-        await autoBlocking(); // Wait for autoBlocking to complete before starting next iteration
-        console.log(`autoBlocking run ${i + 1} completed.`);
+        const count = await autoBlocking(); // Wait for autoBlocking to complete before starting next iteration
+        sumCompleted += count;
+        console.log(`autoBlocked run ${i + 1} completed.`);
+        console.log(`autoBlocked total  ${sumCompleted} users.`);
     }
 })();
