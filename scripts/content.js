@@ -85,9 +85,9 @@ javascript:(async () => {
         await scrollDown(length);
         return count;
     }
-    // Execute autoBlocking 3 times, waiting for each to complete before the next
+    // Execute autoBlocking 10 times, waiting for each to complete before the next
     let sumCompleted = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
         const count = await autoBlocking(); // Wait for autoBlocking to complete before starting next iteration
         sumCompleted += count;
         console.log(`autoBlocked run ${i + 1} completed.`);
