@@ -10,7 +10,6 @@ javascript:(async () => {
             window.scrollBy(0, num * 90);
             // Use setTimeout to delay the resolution of the promise
             setTimeout(() => {
-                console.log('Finished scrolling, executing other code now.');
                 resolve(); // Resolve the promise after the timeout
             }, 1000); // Adjust the timeout as needed for your scrolling duration
         });
@@ -79,9 +78,7 @@ javascript:(async () => {
             await delay(13);
 
         }
-        setTimeout(() => {
-            console.log('Finished blocking, executing other code now.');
-        }, 2000 * length); 
+
         await scrollDown(length);
         return count;
     }
